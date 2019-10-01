@@ -35,4 +35,8 @@ class Message
   def self.logout
     'Your token has expired. Logout successfully'
   end
+
+  def self.update_false
+    'Update do not successfully'
+  end
 end

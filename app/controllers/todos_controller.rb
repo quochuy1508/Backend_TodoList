@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
-  before_action :set_todo, only: [:show, :update, :destroy]
+  before_action :set_todo, only: %i[show update destroy]
 
   # GET /todos
   def index
@@ -10,7 +10,7 @@ class TodosController < ApplicationController
 
   # POST /todos
   def create
-    #create todos belonging to current user
+    # create todos belonging to current user
     @todo = current_user.todos.create!(todo_params)
     json_response(@todo, :created)
   end

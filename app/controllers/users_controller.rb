@@ -15,6 +15,20 @@ class UsersController < ApplicationController
 
   end
 
+  def show
+    json_response(current_user)
+  end
+
+
+  def update
+    if @current_user.update_attributes(user_params)
+      json_response(@current_user)
+    else
+      response = { message: Message.update_false}
+      json_response(response)
+    end
+  end
+
   private
 
   def user_params
