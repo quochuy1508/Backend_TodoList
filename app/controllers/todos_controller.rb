@@ -1,11 +1,11 @@
 class TodosController < ApplicationController
-  before_action :set_todo, only: []
+  before_action :set_todo, only: [:show, :update, :destroy]
 
   # GET /todos
   def index
     # get current user todos
     @todos = current_user.todos
-    json_response(@todo)
+    json_response(@todos)
   end
 
   # POST /todos
