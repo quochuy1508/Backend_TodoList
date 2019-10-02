@@ -13,13 +13,7 @@ User.create!(
         password_confirmation: "admin123"
 )
 
-99.times do |n|
-  name = Faker::Name.name
-  email =  "example-#{n+1}@gmail.com"
-  password = "123456"
-  User.create!(name: name, email: email, password: password, password_confirmation: password)
-end
 
-50.times do
-  todo = Todo.create(title: Faker::Lorem.word, created_by: User.first.id)
+5.times do
+  todo = Todo.create!(title: Faker::Lorem.word, created_by: User.first.id)
 end

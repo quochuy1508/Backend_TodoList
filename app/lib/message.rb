@@ -39,4 +39,9 @@ class Message
   def self.update_false
     'Update do not successfully'
   end
+
+  def self.message_not_send
+    'Message must have content'
+  end
+
 end

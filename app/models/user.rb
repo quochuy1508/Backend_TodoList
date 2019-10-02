@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
   has_many :todos, foreign_key: :created_by, dependent: :destroy
+  has_many :messages, dependent: :destroy
+  has_and_belongs_to_many :conversations, dependent: :destroy
 end
