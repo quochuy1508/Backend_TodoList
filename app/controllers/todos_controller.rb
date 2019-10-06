@@ -4,7 +4,7 @@ class TodosController < ApplicationController
   # GET /todos
   def index
     # get current user todos
-    @todos = current_user.todos.order("id")
+    @todos = current_user.todos.all.order("id DESC").reorder("priority DESC")
     json_response(@todos)
   end
 
@@ -23,7 +23,7 @@ class TodosController < ApplicationController
   # PUT todos/:id
   def update
     @todo.update!(todo_params)
-    @todos = current_user.todos.order("id")
+    @todos = current_user.todos.order('priority DESC').reorder("id")
     json_response(@todos)
   end
 
