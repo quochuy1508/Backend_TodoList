@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_02_025229) do
+ActiveRecord::Schema.define(version: 2019_10_06_054256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,10 +40,10 @@ ActiveRecord::Schema.define(version: 2019_10_02_025229) do
     t.boolean "isPending", default: true
     t.boolean "isDoing", default: false
     t.boolean "isDone", default: false
-    t.integer "priority", default: 0
     t.string "created_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "priority", default: 0
   end
 
   create_table "users", force: :cascade do |t|

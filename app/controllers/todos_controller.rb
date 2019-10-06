@@ -4,7 +4,7 @@ class TodosController < ApplicationController
   # GET /todos
   def index
     # get current user todos
-    @todos = current_user.todos.order("priority DESC").reorder("id")
+    @todos = current_user.todos.order("id")
     json_response(@todos)
   end
 
@@ -22,10 +22,9 @@ class TodosController < ApplicationController
 
   # PUT todos/:id
   def update
-    @todo.update(todo_params)
+    @todo.update!(todo_params)
     @todos = current_user.todos.order("id")
     json_response(@todos)
-
   end
 
   # DELETE /todos/:id
@@ -38,6 +37,7 @@ class TodosController < ApplicationController
   def todo_params
     params.require(:todo).permit(:title, :isPending, :isDoing, :isDone, :priority)
   end
+
 
   def set_todo
     @todo = Todo.find(params[:id])
